@@ -45,3 +45,22 @@ RUN apt-get update && apt-get install -y \
     wget  && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
+
+RUN cd /tmp && \
+    git clone https://github.com/INCF/libneurosim.git libneurosim && \
+    cd /tmp/libneurosim && \
+    chmod +x autogen.sh && \
+    ./autogen.sh && \
+    chmod +x configure && \
+    ./configure --with-python=3 && make &&  make install &&\
+    rm -rf /tmp/*
+
+# add user 'nest'
+RUN adduser --disabled-login --gecos 'NEST' --home /home/nest nest && \
+    adduser nest sudo && \
+    mkdir data && \
+    chown nest:nest /home/nest
+
+WORKDIR /home/nest/data
+
+
