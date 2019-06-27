@@ -58,11 +58,9 @@ RUN cd /tmp && \
 # add user 'nest'
 RUN adduser --disabled-login --gecos 'NEST' --home /home/nest nest && \
     adduser nest sudo && \
-    mkdir data && \
-    chown nest:nest /home/nest && \
-    chmod -R 777 /home/nest
+    mkdir data result build && \
+    chown -R nest:nest /home/nest
 
-
-WORKDIR /home/nest/
+WORKDIR /home/nest/data
 USER nest
 
