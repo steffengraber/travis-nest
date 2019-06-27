@@ -61,6 +61,6 @@ RUN adduser --disabled-login --gecos 'NEST' --home /home/nest nest && \
     mkdir data && \
     chown nest:nest /home/nest
 
-WORKDIR /home/nest/data
+WORKDIR /home/nest/
 
 
