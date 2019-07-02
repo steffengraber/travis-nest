@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     music-bin \
     openmpi-bin \
     pep8 \
+    python-nose \
     python3.6-dev \
     python3-ipython \
     python3-jupyter-core \
